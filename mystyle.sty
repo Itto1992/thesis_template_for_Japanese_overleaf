@@ -1,0 +1,57 @@
+% 日本語を使用可能に
+\usepackage{xeCJK}
+\setCJKmainfont{IPAMincho}
+\setCJKsansfont{IPAGothic}
+\setCJKmonofont{IPAGothic}
+
+% 日本語表記に変更
+\renewcommand{\contentsname}{目次} 
+\renewcommand{\listfigurename}{図目次}
+\renewcommand{\listtablename}{表目次}
+
+\renewcommand{\figurename}{図} 
+\renewcommand{\tablename}{表} 
+
+\renewcommand{\refname}{参考文献}
+
+% 目次を一括表示
+\def\contents{%
+    \frontmatter
+
+    \input{abstruct}
+    \clearpage
+    
+    \setcounter{tocdepth}{2}
+    \tableofcontents
+    \clearpage
+    
+    \listoffigures
+    \clearpage
+    
+    \listoftables
+    \clearpage
+}
+
+% 参考文献設定＋表示
+\def\bib{%
+    \bibliographystyle{unsrt}
+    \addcontentsline{toc}{section}{参考文献}
+    \bibliography{egbib}
+}%
+
+% メインパートとそれ以外のページ番号を分けるコマンドを定義
+\def\frontmatter{%
+    \pagenumbering{roman}
+    \setcounter{page}{1}
+    \renewcommand{\thesection}{\Roman{section}}
+}%
+\def\mainmatter{%
+    \pagenumbering{arabic}
+    \setcounter{page}{1}
+    \setcounter{section}{0}
+    \renewcommand{\thesection}{\arabic{section}}
+}%
+\def\backmatter{%
+    \setcounter{section}{0}
+    \renewcommand{\thesection}{\Alph{section}}
+}%

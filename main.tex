@@ -1,0 +1,42 @@
+\documentclass[12pt,a4paper,oneside,openany,titlepage]{article}
+ 
+\usepackage{mystyle}
+
+\title{
+    令和元年度\\
+    修士論文\\
+    Title
+}
+\author{
+    令和元年３月\\
+    指導教員 名前\\
+    \\
+    所属\\
+    学籍番号 名前
+}
+\date{}
+ 
+\begin{document}
+
+\maketitle
+\pagestyle{plain}
+\setlength{\baselineskip}{22truept}
+
+% 目次
+\contents
+
+% 本文
+\mainmatter
+\input{introduction.tex}
+\input{body.tex}
+\input{conclusion.tex}
+\clearpage
+
+% 必要であれば
+\input{acknowledgement.tex}
+\clearpage
+
+% 参考文献
+\bib
+
+\end{document}
